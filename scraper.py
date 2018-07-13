@@ -9,7 +9,8 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-column1 = lxml.html.tostring(root.find_class("colhead"))
+element = root.get_element_by_id("colhead")
+column1 = element.text_content()
 
 # Write out to the sqlite database using scraperwiki library
 scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
