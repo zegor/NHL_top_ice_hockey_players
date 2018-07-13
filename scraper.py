@@ -9,8 +9,8 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-element = root.get_element_by_id("my-players-table")
-column1 = element.text_content()
+elements = root.find_class("colhead")
+column1 = elements.count()
 
 # Write out to the sqlite database using scraperwiki library
 scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
