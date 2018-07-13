@@ -9,10 +9,10 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-column1_text = root.find_class('colhead')
+root.find_class("colhead")
 
 # Write out to the sqlite database using scraperwiki library
-scraperwiki.sqlite.save(unique_keys=['column1'], data={"column1": column1_text}, table_name="data")
+scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": "test"}, table_name="data")
 
 # You don't have to do things with the ScraperWiki and lxml libraries.
 # You can use whatever libraries you want: https://morph.io/documentation/python
