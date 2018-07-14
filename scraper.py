@@ -44,7 +44,7 @@ for group in range(6):
     player_name_text = player_row_text.split(". ",1)[1].split(", ",1)[0]
     
     for links in player_row_link:
-      for link in range(2,2):
+      for link in range(2,1):
         print(links[link])
     
     # Write out to the sqlite database using scraperwiki library
