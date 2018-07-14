@@ -36,6 +36,7 @@ for group in range(6):
     else:
       player_name_text = player_name[1].text_content()
     player_name_text = player_name_text.split(",",0)[0]
+    print(player_name_text)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
