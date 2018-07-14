@@ -36,12 +36,13 @@ for group in range(6):
     player_row = players[player].cssselect("td")
     if player > 0:
       player_row_text = player_row[0].text_content()
+      player_row_link = player_row[0].iterlinks()
     else:
       player_row_text = player_row[1].text_content()
+      player_row_link = player_row[1].iterlinks()
     player_rank_text = player_row_text.split(". ",1)[0]
     player_name_text = player_row_text.split(". ",1)[1].split(", ",1)[0]
     
-    player_row_links = player_row[0].iterlinks()
     for x in player_row_links:
       print(x[2])
     
