@@ -10,12 +10,10 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 # Parse HTML
 root = lxml.html.fromstring(html)
 
-root_without_extra = root.cssselect("div.mod-container mod-table mod-no-footer").drop_tree()
+groupings = root.cssselect("table.tablehead")
 
-groupings = root_without_extra.cssselect("table.tablehead")
-
-for group in groupings:
-  categories = group.cssselect("tr.colhead")
+for group in range(6):
+  categories = groupings[group].cssselect("tr.colhead")
   
   for category in categories:
     category_name = category.cssselect("td")
