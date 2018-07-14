@@ -4,6 +4,9 @@
 import scraperwiki
 import lxml.html
 
+# Clear database data table
+scraperwiki.sqlite.execute("DROP TABLE 'data'")
+
 # Scrape source
 html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
