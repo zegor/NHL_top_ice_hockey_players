@@ -22,7 +22,7 @@ groupings = root.cssselect("table.tablehead")
 
 for group in range(6):
   categories = groupings[group].cssselect("tr.colhead")
-  print(categories[group].text_content())
+  print(categories[0].text_content())
   
   # for category in categories:
     # category_name = category.cssselect("td")
