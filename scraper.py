@@ -21,7 +21,7 @@ root = lxml.html.fromstring(html)
 groupings = root.cssselect("table.tablehead")
 
 for group in range(6):
-  categories = groupings[group].cssselect("tbody")
+  categories = groupings[group].cssselect("tr.colhead")
   print(categories[group].text_content())
   
   # for category in categories:
