@@ -9,12 +9,13 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
 # Parse HTML
 root = lxml.html.fromstring(html)
-elements = root.cssselect("tr.colhead.td")
+groupings = root.cssselect("table.tablehead")
+print(groupings)
+# categories = groupings.cssselect("tr.colhead")
+# category_names = categories.cssselect("td")
 
-# Print each element
-for element in elements:
-  element_text = element.text_content()
-  print(element_text)
+# Print
+# print(category_names)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
