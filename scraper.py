@@ -45,7 +45,7 @@ for group in range(6):
     
     for links in player_row_link:
       for link in links:
-        print(link)
+        print(link[2])
     
     # Write out to the sqlite database using scraperwiki library
     scraperwiki.sqlite.save(unique_keys=["Player ID"], data={"Player ID":player_id, "Category":category_name_text, "Player Rank":player_rank_text, "Player Name":player_name_text}, table_name="data")
