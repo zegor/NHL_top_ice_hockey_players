@@ -5,11 +5,12 @@ import scraperwiki
 import lxml.html
 
 # Clear database data table
+print("1. Dropping table 'data'.")
 try:
   scraperwiki.sqlite.execute("DROP TABLE 'data'")
-  print("Table 'data' dropped.")
+  print("2. Table 'data' dropped.")
 except:
-  print("Table 'data' does not exist.")
+  print("2. Table 'data' does not exist.")
 
 # Scrape source
 html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
@@ -21,11 +22,11 @@ groupings = root.cssselect("table.tablehead")
 
 for group in range(6):
   categories = groupings[group].cssselect("tbody")
-  print(categories.text_content())
   
-  # for category in categories:
+  for category in categories:
     # category_name = category.cssselect("td")
     # print(category_name[0].text_content())
+    print(category.text_content())
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
