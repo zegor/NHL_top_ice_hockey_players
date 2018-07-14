@@ -42,7 +42,8 @@ for group in range(6):
     player_name_text = player_row_text.split(". ",1)[1].split(", ",1)[0]
     
     player_row_links = player_row[0].iterlinks()
-    print(player_row_links[0].text_content())
+    for x in player_row_links:
+      print(x)
     
     # Write out to the sqlite database using scraperwiki library
     scraperwiki.sqlite.save(unique_keys=["Player ID"], data={"Player ID":player_id, "Category":category_name_text, "Player Rank":player_rank_text, "Player Name":player_name_text}, table_name="data")
