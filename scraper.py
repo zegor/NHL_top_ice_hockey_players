@@ -13,7 +13,7 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 # Parse HTML
 root = lxml.html.fromstring(html)
 
-groupings = root.cssselect("table.tablehead")
+groupings = root.cssselect("tdbody")
 
 for group in range(6):
   categories = groupings[group].cssselect("tr.colhead")
