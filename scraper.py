@@ -13,11 +13,11 @@ root = lxml.html.fromstring(html)
 groupings = root.cssselect("table.tablehead")
 
 for group in groupings:
-  categories = groupings.cssselect("tr.colhead")
+  categories = group.cssselect("tr.colhead")
   
   for category in categories:
-    category_names = categories.cssselect("td")
-    print(category_names.text_content())
+    category_name = category.cssselect("td")
+    print(category_name.text_content())
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
