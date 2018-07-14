@@ -54,7 +54,8 @@ for group in range(6):
     
     player_bio = root_player.cssselect("div.player-bio")
     player_metadata = player_bio[0].cssselect("ul.player-metadata.floatleft")
-    print(player_metadata[0].text_content())
+    player_born = player_metadata[0].cssselect("li")
+    print(player_born[0])
     
     # Write out to the sqlite database using scraperwiki library
     scraperwiki.sqlite.save(unique_keys=["Player ID"], data={"Player ID":player_id, "Category":category_name_text, "Player Rank":player_rank_text, "Player Name":player_name_text, "Player Link":player_link_text}, table_name="data")
