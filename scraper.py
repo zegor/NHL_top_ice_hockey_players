@@ -56,7 +56,7 @@ for group in range(6):
     player_metadata = player_bio[0].cssselect("ul.player-metadata.floatleft")
     player_born = player_metadata[0].cssselect("li")
     player_born_text = player_born[0].text_content()
-    player_born_month_text = player_born_text.split("Born",1)[1].split(1)[0]
+    player_born_month_text = player_born_text.split("Born",1)[1].split(" ",1)[0]
     print(player_born_month_text)
     
     # Write out to the sqlite database using scraperwiki library
