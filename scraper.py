@@ -37,10 +37,9 @@ for group in range(6):
       player_row_text = player_row[1].text_content()
     player_rank_text = player_row_text.split(". ",1)[0]
     player_name_text = player_row_text.split(". ",1)[1].split(", ",1)[0]
-    print(category_name_text + " - " + player_rank_text + " - " + player_name_text)
-
-# Write out to the sqlite database using scraperwiki library
-# scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
+    
+    # Write out to the sqlite database using scraperwiki library
+    scraperwiki.sqlite.save(data={"Category":category_name_text, "Player Rank":player_rank_text, "Player Name":player_name_text}, table_name="data")
 
 # You don't have to do things with the ScraperWiki and lxml libraries.
 # You can use whatever libraries you want: https://morph.io/documentation/python
