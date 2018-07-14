@@ -22,10 +22,14 @@ groupings = root.cssselect("table.tablehead")
 
 for group in range(6):
   categories = groupings[group].cssselect("tr.colhead")
+  players = groupings[group].cssselect("tr.oddrow")
   
   for category in categories:
     category_name = category.cssselect("td")
     print(category_name[0].text_content())
+  
+  for player in players:
+    print(player)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
