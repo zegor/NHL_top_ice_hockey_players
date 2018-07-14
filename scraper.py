@@ -23,7 +23,7 @@ groupings = root.cssselect("table.tablehead")
 for group in range(6):
   categories = groupings[group].cssselect("tr.colhead")
   players = groupings[group].cssselect("tr.oddrow")
-  players.extend() = groupings[group].cssselect("tr.evenrow")
+  players.extend(groupings[group].cssselect("tr.evenrow"))
   
   for category in categories:
     category_name = category.cssselect("td")
