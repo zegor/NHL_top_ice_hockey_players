@@ -27,7 +27,7 @@ for group in range(6):
   
   for category in categories:
     category_name = category.cssselect("td")
-    print(category_name[0].text_content())
+    category_name_text = category_name[0].text_content()
   
   for player in range(5):
     player_row = players[player].cssselect("td")
@@ -37,7 +37,7 @@ for group in range(6):
       player_row_text = player_row[1].text_content()
     player_rank_text = player_row_text.split(". ",1)[0]
     player_name_text = player_row_text.split(". ",1)[1].split(", ",1)[0]
-    print(player_rank_text + " - " + player_name_text)
+    print(category_name_text + " - " + player_rank_text + " - " + player_name_text)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
