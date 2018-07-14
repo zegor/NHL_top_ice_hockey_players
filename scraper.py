@@ -29,7 +29,7 @@ for group in range(6):
     category_name = category.cssselect("td")
     print(category_name[0].text_content())
   
-  for player in players:
+  for player in range(5):
     print(player)
 
 # Write out to the sqlite database using scraperwiki library
