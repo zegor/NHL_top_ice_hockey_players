@@ -14,7 +14,7 @@ categories = groupings[0].cssselect("tr.colhead")
 category_names = categories[0].cssselect("td")
 
 # Print
-print(category_names.text_content())
+print(category_names[0].text_content())
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
