@@ -5,7 +5,11 @@ import scraperwiki
 import lxml.html
 
 # Clear database data table
-scraperwiki.sqlite.execute("DROP TABLE 'data'")
+try:
+  scraperwiki.sqlite.execute("DROP TABLE 'data'")
+  print("Table 'data' dropped.")
+except:
+  print("Table 'data' does not exist.")
 
 # Scrape source
 html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
