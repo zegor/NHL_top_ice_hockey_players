@@ -31,7 +31,10 @@ for group in range(6):
   
   for player in range(5):
     player_name = players[player].cssselect("td")
-    print(player_name[0].text_content())
+    if player > 0:
+      print(player_name[0].text_content())
+    else:
+      print(player_name[1].text_content())
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
