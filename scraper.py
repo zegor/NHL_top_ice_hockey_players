@@ -13,7 +13,8 @@ elements = root.find_class("colhead")
 
 # Print each element
 for element in elements:
-  print(element)
+  element_text = element.text_content()
+  print(element_text)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
