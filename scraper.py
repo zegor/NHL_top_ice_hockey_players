@@ -1,17 +1,19 @@
-# This is a template for a Python scraper on morph.io (https://morph.io)
-# including some code snippets below that you should find helpful
+# Python scraper on morph.io (https://morph.io)
 
+# Import libraries
 import scraperwiki
 import lxml.html
 
-# Read in a page
+# Scrape source
 html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
-# Find something on the page using css selectors
+# Parse HTML
 root = lxml.html.fromstring(html)
 elements = root.find_class("colhead")
-print(elements[0].text_content())
-print(elements[1].text_content())
+
+# Print each element
+for element in elements:
+  print(element)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=["column1"], data={"column1": column1}, table_name="data")
