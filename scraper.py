@@ -9,8 +9,7 @@ html = scraperwiki.scrape("http://www.espn.com/nhl/statistics")
 
 # Parse HTML
 root = lxml.html.fromstring(html)
-# elements = root.find_class("colhead")
-elements = root.cssselect("tr.colhead")
+elements = root.cssselect("tr.colhead.td")
 
 # Print each element
 for element in elements:
